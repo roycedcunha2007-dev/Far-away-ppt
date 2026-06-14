@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { EyeOff, Users, Activity, AlertTriangle } from "lucide-react";
 
@@ -20,6 +20,18 @@ const behaviors = [
 ];
 
 export default function TheProblem() {
+  const [videoSrc, setVideoSrc] = useState<string | undefined>();
+
+  useEffect(() => {
+    fetch('/demo_video.mp4')
+      .then(res => res.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        setVideoSrc(url);
+      })
+      .catch(err => console.error("Error loading video blob:", err));
+  }, []);
+
   return (
     <section className="relative h-full w-full flex items-center justify-center overflow-hidden">
       <div className="container mx-auto px-6 relative z-10 scale-[0.85] md:scale-100 origin-center">
@@ -61,38 +73,21 @@ export default function TheProblem() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-[400px] rounded-2xl overflow-hidden glass-panel group">
-             {/* Simulated CCTV Feed of crowded hall */}
-             <div className="absolute inset-0 bg-[#0a0a0a] flex items-center justify-center">
-                <div className="grid grid-cols-5 grid-rows-5 gap-2 w-full h-full p-4 opacity-50">
-                  {[...Array(25)].map((_, i) => (
-                    <motion.div 
-                      key={i}
-                      animate={{
-                        opacity: [0.5, 1, 0.5],
-                      }}
-                      transition={{
-                        duration: 2 + Math.random() * 2,
-                        repeat: Infinity,
-                        delay: Math.random() * 2,
-                      }}
-                      className="bg-gray-800 rounded-sm relative overflow-hidden"
-                    >
-                      {/* Randomly highlight some as suspicious */}
-                      {i % 7 === 0 && (
-                        <motion.div 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: [0, 0.8, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 + Math.random() * 2 }}
-                          className="absolute inset-0 border-2 border-danger shadow-[inset_0_0_10px_rgba(255,77,109,0.5)]"
-                        />
-                      )}
-                    </motion.div>
-                  ))}
+             {/* Live Demo Video Feed */}
+             <div className="relative w-full h-full bg-black flex items-center justify-center overflow-hidden">
+                <video 
+                  src={videoSrc || "/demo_video.mp4"}
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  controls
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 text-xs font-mono text-white/90 bg-black/70 px-2 py-1 rounded backdrop-blur-sm z-20">
+                  LIVE TRACKING - CAM_01
                 </div>
-                <div className="absolute top-4 left-4 text-xs font-mono text-white/50 bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
-                  CAM_01 - EXAM_HALL_A
-                </div>
-                <div className="absolute top-4 right-4 text-xs font-mono text-danger animate-pulse bg-black/50 px-2 py-1 rounded backdrop-blur-sm flex items-center gap-2">
+                <div className="absolute top-4 right-4 text-xs font-mono text-danger animate-pulse bg-black/70 px-2 py-1 rounded backdrop-blur-sm z-20 flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-danger" /> REC
                 </div>
              </div>
