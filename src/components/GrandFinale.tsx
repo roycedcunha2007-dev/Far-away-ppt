@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, ExternalLink, GitBranch } from "lucide-react";
+import { Play, GitBranch } from "lucide-react";
 
 export default function GrandFinale() {
   return (
@@ -42,15 +42,12 @@ export default function GrandFinale() {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full"
         >
-          <button className="w-full sm:w-auto px-10 py-5 bg-white text-black font-bold rounded-full flex items-center justify-center gap-3 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300">
+          <a href="https://drive.google.com/file/d/1Sgv70zKr33VSGUTrruOZeYpaxXapjr4R/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-10 py-5 bg-white text-black font-bold rounded-full flex items-center justify-center gap-3 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300">
             <Play size={20} fill="currentColor" /> View Live Demo
-          </button>
-          <button className="w-full sm:w-auto px-10 py-5 glass-panel text-white font-bold rounded-full flex items-center justify-center gap-3 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
-            <ExternalLink size={20} /> View Prototype
-          </button>
-          <button className="w-full sm:w-auto px-10 py-5 glass-panel text-gray-300 font-bold rounded-full flex items-center justify-center gap-3 hover:bg-white/10 transition-all duration-300">
+          </a>
+          <a href="https://github.com/Codenama-007/Face-Detection-Project-using-opencv.git" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-10 py-5 glass-panel text-gray-300 font-bold rounded-full flex items-center justify-center gap-3 hover:bg-white/10 transition-all duration-300">
             <GitBranch size={20} /> GitHub Repository
-          </button>
+          </a>
         </motion.div>
 
       </div>
