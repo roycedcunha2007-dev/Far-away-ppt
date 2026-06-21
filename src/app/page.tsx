@@ -71,7 +71,7 @@ export default function SlideDeck() {
 
       {/* Presentation Controls HUD */}
       <div 
-        className="absolute bottom-6 right-6 z-[100] flex gap-4 text-gray-500 font-mono text-sm" 
+        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-[100] flex gap-2 md:gap-4 text-gray-500 font-mono text-xs md:text-sm" 
         onClick={(e) => e.stopPropagation()}
       >
         <button onClick={prevSlide} disabled={currentSlide === 0} className="hover:text-primary transition-colors disabled:opacity-30 cursor-pointer p-2">
@@ -86,7 +86,7 @@ export default function SlideDeck() {
       </div>
       
       {/* Keyboard Hint */}
-      <div className="absolute bottom-6 left-6 z-[100] text-gray-600 font-mono text-xs opacity-50">
+      <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-[100] text-gray-600 font-mono text-[10px] md:text-xs opacity-50 pointer-events-none">
         TAP SCREEN OR USE ARROW KEYS TO NAVIGATE
       </div>
     </main>
