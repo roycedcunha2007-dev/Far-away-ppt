@@ -33,15 +33,15 @@ export default function TheProblem() {
   }, []);
 
   return (
-    <section className="relative min-h-full w-full flex items-center justify-center overflow-x-hidden overflow-y-auto py-24 lg:py-0">
-      <div className="container mx-auto px-6 relative z-10 scale-[0.85] md:scale-95 lg:scale-100 origin-center pt-8">
+    <section className="relative h-full w-full flex items-center justify-center overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10 w-full max-w-[95vw] lg:max-w-[85vw] scale-[0.9] md:scale-100 origin-center pt-4">
         
-        <div className="text-center mb-6 lg:mb-12">
+        <div className="text-center mb-4 lg:mb-8">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 lg:mb-4"
           >
             The Human <span className="text-danger">Limitation</span>
           </motion.h2>
@@ -49,30 +49,30 @@ export default function TheProblem() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto"
+            className="text-sm md:text-lg text-gray-400 max-w-3xl mx-auto"
           >
             A traditional examination hall presents an impossible surveillance challenge. Human invigilators cannot monitor every student simultaneously.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 mb-8 lg:mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4 mb-6 lg:mb-10">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              className="glass-panel p-4 lg:p-8 rounded-2xl flex flex-col items-center text-center group hover:border-primary/50 transition-colors duration-300"
+              className="glass-panel p-3 lg:p-6 rounded-2xl flex flex-col items-center text-center group hover:border-primary/50 transition-colors duration-300"
             >
-              <stat.icon size={36} className={`mb-2 lg:mb-4 ${stat.color} group-hover:scale-110 transition-transform duration-300 md:w-12 md:h-12`} />
-              <div className="text-2xl lg:text-3xl font-bold text-white mb-1 lg:mb-2">{stat.value}</div>
-              <div className="text-gray-400 text-xs lg:text-sm uppercase tracking-wider">{stat.label}</div>
+              <stat.icon size={28} className={`mb-2 lg:mb-3 ${stat.color} group-hover:scale-110 transition-transform duration-300 md:w-8 md:h-8`} />
+              <div className="text-xl lg:text-2xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-gray-400 text-[10px] lg:text-xs uppercase tracking-wider">{stat.label}</div>
             </motion.div>
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center pb-8 lg:pb-0">
-          <div className="relative h-[250px] md:h-[300px] lg:h-[400px] rounded-2xl overflow-hidden glass-panel group">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-center pb-4 lg:pb-0">
+          <div className="relative h-[200px] md:h-[260px] lg:h-[320px] 2xl:h-[400px] rounded-2xl overflow-hidden glass-panel group">
              {/* Live Demo Video Feed */}
              <div className="relative w-full h-full bg-black flex items-center justify-center overflow-hidden">
                 <video 

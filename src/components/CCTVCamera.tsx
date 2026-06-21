@@ -32,7 +32,7 @@ useGLTF.preload("/cctv_camera.glb");
 
 export default function CCTVCamera3D() {
   return (
-    <div className="w-full h-[400px] md:h-[600px] relative z-10">
+    <div className="w-full h-[300px] md:h-[400px] 2xl:h-[600px] relative z-10">
       <Canvas camera={{ position: [3, 2, 5], fov: 45 }}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
