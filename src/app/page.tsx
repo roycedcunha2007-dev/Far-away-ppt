@@ -63,7 +63,7 @@ export default function SlideDeck() {
           animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
           exit={{ opacity: 0, filter: "blur(10px)", scale: 1.05 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 w-full h-full flex flex-col justify-center items-center"
+          className="absolute inset-0 w-full h-full flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden"
         >
           {slides[currentSlide]}
         </motion.div>

@@ -5,7 +5,7 @@ import CCTVCamera3D from "./CCTVCamera";
 
 export default function Hero() {
   return (
-    <section className="relative h-full w-full flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-full w-full flex flex-col items-center justify-center overflow-x-hidden overflow-y-auto py-24 lg:py-0">
       
       <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center scale-95 md:scale-100 origin-center">
         
